@@ -14,14 +14,42 @@ class UserInformationViewController: UIViewController {
     
     var userName: String!
     
+    //MARK: - Public properties
+    var user: User!
+    
+    //MARK: - Public properties
+private let primaryColor = UIColor(
+    red: 210/255,
+    green: 109/255,
+    blue: 128/255,
+    alpha: 1
+)
+    private let secondaryColor = UIColor(
+        red: 107/255,
+        green: 148/255,
+        blue: 230/255,
+        alpha: 1
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        userNameLabel.text = "Welcome, " + userName
+        addVerticalGradientLayer(topColor:primaryColor, bottomColor: secondaryColor)
+        userNameLabel.text = "Welcome, " + user.name
     }
     
     @IBAction func logOutAction() {
         dismiss(animated: true)
     }
-    
-
+}
+extension UserInformationViewController {
+    func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [topColor.cgColor, bottomColor.cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+        view.layer.insertSublayer(gradient, at: 0
+        )
+    }
 }

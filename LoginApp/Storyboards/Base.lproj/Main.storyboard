@@ -22,12 +22,12 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOK-4L-JYO">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" smartInsertDeleteType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wz6-aM-Kvv">
                                         <rect key="frame" x="0.0" y="55" width="288" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartInsertDeleteType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ec3-aD-fRs">
                                         <rect key="frame" x="0.0" y="110" width="288" height="44"/>
@@ -36,8 +36,8 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="logInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rn3-ny-13F"/>
-                                            <segue destination="bLL-6n-P3V" kind="presentation" identifier="showUser" modalPresentationStyle="fullScreen" id="NI0-DQ-BmW"/>
+                                            <action selector="logInButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="U4K-ag-rt4"/>
+                                            <segue destination="bLL-6n-P3V" kind="presentation" identifier="logIn" id="Y7j-y5-2Mw"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="v81-GC-BDr">
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="-13" y="54"/>
         </scene>
-        <!--User Name-->
+        <!--user-->
         <scene sceneID="pfe-Vr-f0Y">
             <objects>
-                <viewController id="Y6R-py-eQV" sceneMemberID="viewController">
+                <viewController id="Y6R-py-eQV" customClass="AboutMeViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hoe-L9-6pg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,7 +109,7 @@
                             <constraint firstItem="Q3G-LX-qgc" firstAttribute="centerX" secondItem="Hoe-L9-6pg" secondAttribute="centerX" id="bMd-7j-Orf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="User Name" id="sQG-uN-mz4">
+                    <navigationItem key="navigationItem" title="user" id="sQG-uN-mz4">
                         <barButtonItem key="backBarButtonItem" title="Back" id="rAB-5D-rrS"/>
                     </navigationItem>
                 </viewController>
@@ -152,7 +152,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
                                 <connections>
-                                    <segue destination="uaQ-vD-Rnm" kind="unwind" unwindAction="unwindSegueWithSegue:" id="0Xj-an-skR"/>
+                                    <segue destination="uaQ-vD-Rnm" kind="unwind" unwindAction="unwindSegueWithSegue:" id="6Yu-Lt-fsI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqz-9J-kBa">
@@ -188,7 +188,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qhL-TY-mMg">
             <objects>
-                <tabBarController id="bLL-6n-P3V" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="bLL-6n-P3V" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3QW-wO-TpT"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7qM-sp-vN4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -207,7 +208,7 @@
         <!--Navigation Controller-->
         <scene sceneID="fNU-0D-wCK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f9f-Bj-ZYy" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="f9f-Bj-ZYy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="rosette" catalog="system" selectedImage="rosette" id="7rU-dr-TPb">
                         <color key="badgeColor" systemColor="opaqueSeparatorColor"/>
                     </tabBarItem>
